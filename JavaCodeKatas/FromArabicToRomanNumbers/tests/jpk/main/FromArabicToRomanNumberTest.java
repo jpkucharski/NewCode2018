@@ -9,8 +9,12 @@ public class FromArabicToRomanNumberTest {
 
     private static final int INTEGER_ONE = 1;
     private static final int INTEGER_TWO = 2;
+    private static final int INTEGER_THREE = 3;
     private static final String STRING_ONE = "I";
     private static final String STRING_TWO = "II";
+    private static final String STRING_THREE = "III";
+    private static final int INTEGER_FOUR = 4;
+    private static final String STRING_FOUR = "IV";
 
     private FromArabicToRomanNumber fromArabicToRomanNumber;
 
@@ -38,4 +42,18 @@ public class FromArabicToRomanNumberTest {
         String expected = STRING_TWO;
         assertEquals(expected, actual);
     }
+    @Test
+    public void puttingInteger3_shouldReturnStringIII(){
+        String actual = fromArabicToRomanNumber.fromArabicToRoman(INTEGER_THREE);
+        String expected = STRING_THREE;
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void puttingInteger4_shouldReturnStringIV(){
+        String actual = fromArabicToRomanNumber.fromArabicToRoman(INTEGER_FOUR);
+        String expected = STRING_FOUR;
+        assertEquals(expected, actual);
+    }
+
+
 }

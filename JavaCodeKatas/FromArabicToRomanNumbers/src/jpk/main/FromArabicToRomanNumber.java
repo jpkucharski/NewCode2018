@@ -8,6 +8,7 @@ public class FromArabicToRomanNumber {
 
     static{
         map.put(1,"I");
+        map.put(4,"IV");
     }
 
     public String fromArabicToRoman(int integer) {
