@@ -9,6 +9,9 @@ public class FromArabicToRomanNumber {
     static{
         map.put(1,"I");
         map.put(4,"IV");
+        map.put(5,"V");
+        map.put(9,"IX");
+        map.put(10,"X");
     }
 
     public String fromArabicToRoman(int integer) {
