@@ -12,21 +12,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FromArabicToRomanNumber.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FromArabicToRomanNumber.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jpk/main/FromArabicToRomanNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FromArabicToRomanNumberTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FromArabicToRomanNumberTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/jpk/main/FromArabicToRomanNumberTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state relative-caret-position="582">
+              <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FromArabicToRomanNumberTest">
+  <component name="RunManager" selected="JUnit.FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII">
     <configuration name="FromArabicToRomanNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -162,6 +162,31 @@
       <option name="PACKAGE_NAME" value="jpk.main" />
       <option name="MAIN_CLASS_NAME" value="jpk.main.FromArabicToRomanNumberTest" />
       <option name="METHOD_NAME" value="puttingInteger1_shouldReturnStringI" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="jpk.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="FromArabicToRomanNumbers" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="jpk.main" />
+      <option name="MAIN_CLASS_NAME" value="jpk.main.FromArabicToRomanNumberTest" />
+      <option name="METHOD_NAME" value="puttingInteger2_shouldReturnStringII" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -279,16 +304,18 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger_shouldReturnInstanceOfString" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger1_shouldReturnStringI" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger1_shouldReturnStringI" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger_shouldReturnInstanceOfString" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger1_shouldReturnStringI" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.FromArabicToRomanNumberTest.puttingInteger_shouldReturnInstanceOfString" />
       </list>
     </recent_temporary>
   </component>
@@ -315,8 +342,26 @@
     <history-entry file="FromArabicToRomanNumberTest_puttingInteger1_shouldReturnStringI - 2018.02.01 at 12h 14m 06s.xml">
       <configuration name="FromArabicToRomanNumberTest.puttingInteger1_shouldReturnStringI" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FromArabicToRomanNumberTest_puttingInteger_shouldReturnInstanceOfString - 2018.02.01 at 11h 29m 25s.xml">
-      <configuration name="FromArabicToRomanNumberTest.puttingInteger_shouldReturnInstanceOfString" configurationId="JUnit" />
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 12h 54m 29s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 12h 56m 55s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 12h 57m 36s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 12h 58m 32s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 12h 59m 12s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 12h 59m 26s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FromArabicToRomanNumberTest_puttingInteger2_shouldReturnStringII - 2018.02.01 at 13h 02m 36s.xml">
+      <configuration name="FromArabicToRomanNumberTest.puttingInteger2_shouldReturnStringII" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -370,21 +415,21 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/jpk/main/FromArabicToRomanNumberTest.java">
+    <entry file="file://$PROJECT_DIR$/src/jpk/main/FromArabicToRomanNumber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jpk/main/FromArabicToRomanNumber.java">
+    <entry file="file://$PROJECT_DIR$/tests/jpk/main/FromArabicToRomanNumberTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="582">
+          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
