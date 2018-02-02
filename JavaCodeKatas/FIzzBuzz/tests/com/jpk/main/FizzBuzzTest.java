@@ -14,6 +14,9 @@ public class FizzBuzzTest {
     private static final String FIZZ= "FIZZ";
     private static final String BUZZ = "BUZZ";
     private static final String FIZZ_BUZZ = "FIZZ_BUZZ";
+    private static final String ERROR_MESSAGE = "ZERO";
+    private static final int ZERO = 0;
+    private static final int NEGATIVE_INTEGER_THREE = -3;
     private FizzBuzz fizzBuzz;
 
     @Before
@@ -47,5 +50,18 @@ public class FizzBuzzTest {
         String expected = FIZZ_BUZZ;
         assertEquals(expected, actual);
     }
-    
+
+    @Test
+    public void puttingZero_shouldReturnErrorMessage(){
+        String actual = fizzBuzz.fizzOrBuzz(ZERO);
+        String expected = ERROR_MESSAGE;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void puttingNegativeInteger3_shouldReturn(){
+        String actual = fizzBuzz.fizzOrBuzz(NEGATIVE_INTEGER_THREE);
+        String expected = FIZZ;
+        assertEquals(expected, actual);
+    }
 }
