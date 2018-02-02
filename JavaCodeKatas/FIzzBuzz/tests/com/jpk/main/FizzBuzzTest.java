@@ -10,13 +10,14 @@ public class FizzBuzzTest {
     private static final int INTEGER_ONE =1 ;
     private static final int INTEGER_THREE = 3;
     private static final String FIZZ= "FIZZ";
+    private static final int INTEGER_FIVE = 5;
+    private static final String BUZZ = "BUZZ";
     private FizzBuzz fizzBuzz;
 
     @Before
     public void setUp(){
         fizzBuzz = new FizzBuzz();
     }
-
 
     @Test
     public void puttingEanyInteger_shouldReturnString(){
@@ -30,5 +31,16 @@ public class FizzBuzzTest {
         String expected = FIZZ;
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void puttingInteger5_shouldReturnStringBuzz(){
+        String actual = fizzBuzz.fizzOrBuzz(INTEGER_FIVE);
+        String expected = BUZZ;
+        assertEquals(expected, actual);
+
+
+    }
+
+
 
 }
