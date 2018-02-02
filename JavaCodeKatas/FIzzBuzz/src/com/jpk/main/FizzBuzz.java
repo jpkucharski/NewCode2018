@@ -1,10 +1,17 @@
 package com.jpk.main;
 
 public class FizzBuzz {
-    public String fizzOrBuzz(int integerOne) {
 
+    private static final String FIZZ = "FIZZ";
+    private static final String NOT_FIZZ_OR_BUZZ = "NOT_FIZZ_OR_BUZZ";
 
-        return new String();
+    public String fizzOrBuzz(int integer) {
+
+        if(integer % 3 == 0){
+            return FIZZ;
+        }
+
+        return NOT_FIZZ_OR_BUZZ;
     }
 
 
