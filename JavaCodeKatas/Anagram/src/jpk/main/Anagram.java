@@ -14,9 +14,11 @@ public class Anagram implements Anagramable {
     }
 
     @Override
-    public Boolean isAnagram(String string1, String string2) {
-        this.string1 = string1.replaceAll(" ", "");
-        this.string2 = string2.replaceAll(" ", "");
+    public Boolean isAnagram(String s1, String s2) {
+        string1 = s1.replaceAll(" ", "");
+        string2 = s2.replaceAll(" ", "");
+        string1 = string1.toLowerCase();
+        string2 = string2.toLowerCase();
         return true;
     }
 

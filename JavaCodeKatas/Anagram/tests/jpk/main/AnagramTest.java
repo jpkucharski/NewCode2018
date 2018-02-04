@@ -24,13 +24,32 @@ public class AnagramTest {
         assertTrue(isWithoutSpaces(anagram.getString2()));
     }
 
+    @Test
+    public void puttingTwoStringsIntoIsAnagramMethod_shouldChangeThemInToLoweCases() {
+        anagram.isAnagram(SIMPLE_STRING_1, SIMPLE_STRING_2);
+        assertTrue(isWithoutUpperCaseCharacters(anagram.getString1()));
+        assertTrue(isWithoutUpperCaseCharacters(anagram.getString2()));
+    }
+
     private boolean isWithoutSpaces(String string) {
         Boolean withoutSpace = true;
         char[] charArray = string.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
-            if (charArray[i]== ' '){
+            if (charArray[i] == ' ') {
                 withoutSpace = false;
-            break;
+                break;
+            }
+        }
+        return withoutSpace;
+    }
+
+    private boolean isWithoutUpperCaseCharacters(String string) {
+        Boolean withoutSpace = true;
+        char[] charArray = string.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            if (Character.isUpperCase(charArray[i])) {
+                withoutSpace = false;
+                break;
             }
         }
         return withoutSpace;
