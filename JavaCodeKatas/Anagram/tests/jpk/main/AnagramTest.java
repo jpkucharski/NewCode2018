@@ -3,17 +3,19 @@ package jpk.main;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class AnagramTest {
 
     private static final String SIMPLE_STRING_1 = "String 1";
     private static final String SIMPLE_STRING_2 = "1 String";
-    private static final char[] STRING_ARRAY_1 = {'s','t','r','i','n','g','1'};
-    private static final char[] STRING_ARRAY_2 = {'1','s','t','r','i','n','g'};
+    private static final char[] STRING_SORTED_ARRAY_1 = {'1', 'g', 'i', 'n', 'r', 's', 't'};
+    private static final char[] STRING_SORTED_ARRAY_2 = {'1', 'g', 'i', 'n', 'r', 's', 't'};
+
 
     private Anagram anagram;
-
 
     @Before
     public void setUp() {
@@ -33,16 +35,18 @@ public class AnagramTest {
         assertTrue(isWithoutUpperCaseCharacters(anagram.getString1()));
         assertTrue(isWithoutUpperCaseCharacters(anagram.getString2()));
     }
+
     @Test
-    public void puttingTwStringsIntoIsAnagramMethos_ShouldCreatedTwoLocalArraysFromString(){
+    public void puttingTwoStringsIntoIsAnagramMethod_ShouldCreatedTwoLocalArraysFromString() {
         anagram.isAnagram(SIMPLE_STRING_1, SIMPLE_STRING_2);
         char[] actual1 = anagram.getStringArray1();
-        char[] expected1 = STRING_ARRAY_1;
+        char[] expected1 = STRING_SORTED_ARRAY_1;
         char[] actual2 = anagram.getStringArray2();
-        char[] expected2 = STRING_ARRAY_2;
+        char[] expected2 = STRING_SORTED_ARRAY_2;
         assertArrayEquals(expected1, actual1);
         assertArrayEquals(expected2, actual2);
     }
+
 
     private boolean isWithoutSpaces(String string) {
         Boolean withoutSpace = true;
@@ -67,6 +71,4 @@ public class AnagramTest {
         }
         return withoutSpace;
     }
-
-
 }

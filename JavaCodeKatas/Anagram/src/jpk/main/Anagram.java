@@ -1,5 +1,7 @@
 package jpk.main;
 
+import java.util.Arrays;
+
 public class Anagram implements Anagramable {
 
     private String string1;
@@ -29,23 +31,28 @@ public class Anagram implements Anagramable {
         string2 = removingSpaces(s2);
         string1 = settingAllCharactersToLoweCase(string1);
         string2 = settingAllCharactersToLoweCase(string2);
-        stringArray1 = string1.toCharArray();
-        stringArray2 = string2.toCharArray();
-
-        return true;
+        stringArray1 = changingStringIntoCharacterArray(string1);
+        stringArray2 = changingStringIntoCharacterArray(string2);
+        sortingArray(stringArray1);
+        sortingArray(stringArray2);
+        return Arrays.equals(stringArray1, stringArray2);
     }
 
-    private String removingSpaces(String stringWithSpaces){
+    private String removingSpaces(String stringWithSpaces) {
         return stringWithSpaces.replaceAll(" ", "");
     }
 
-    private String settingAllCharactersToLoweCase(String differentCasesString){
+    private String settingAllCharactersToLoweCase(String differentCasesString) {
         return differentCasesString.toLowerCase();
     }
 
-    private char[] changingStringIntoCharacterArray(String string){
+    private char[] changingStringIntoCharacterArray(String string) {
         return string.toCharArray();
     }
 
+    private char[] sortingArray(char[] array) {
+        Arrays.sort(array);
+        return array;
+    }
 
 }
