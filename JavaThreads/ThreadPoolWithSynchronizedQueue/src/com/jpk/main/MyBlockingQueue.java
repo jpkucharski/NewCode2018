@@ -3,13 +3,13 @@ package com.jpk.main;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BlockingQueue {
+public class MyBlockingQueue {
 
 
     private List queue = new LinkedList();
     private int  limit = 10;
 
-    public BlockingQueue(int limit){
+    public MyBlockingQueue(int limit){
         this.limit = limit;
     }
 

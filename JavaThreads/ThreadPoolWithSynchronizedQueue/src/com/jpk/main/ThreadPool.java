@@ -6,12 +6,12 @@ import java.util.List;
 
 public class ThreadPool {
 
-    private BlockingQueue taskQueue = null;
+    private MyBlockingQueue taskQueue = null;
     private List<PoolThread> threads = new ArrayList<PoolThread>();
     private boolean isStopped = false;
 
     public ThreadPool(int noOfThreads, int maxNoOfTasks){
-        taskQueue = new BlockingQueue(maxNoOfTasks);
+        taskQueue = new MyBlockingQueue(maxNoOfTasks);
 
         for(int i=0; i<noOfThreads; i++){
             threads.add(new PoolThread(taskQueue));
