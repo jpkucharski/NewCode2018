@@ -4,7 +4,7 @@ abstract public class AbstractionTestClass {
 
     public int x = 0;
     private int value = 5;
-    private static int counter = 0;
+    private static Integer counter = 0;
     private final String EXCEPTION_VALUE = "FIVE";
 
     static {
@@ -20,7 +20,7 @@ abstract public class AbstractionTestClass {
             x = value;
         }
         counter++; // <-- operation on class memory
-        addOneToInteger(counter); //<-- memory allocation problem, counter was not changed!
+        counter = addOneToInteger(counter);
     }
 
     abstract public void print();
@@ -29,7 +29,7 @@ abstract public class AbstractionTestClass {
         return counter;
     }
 
-    private static int addOneToInteger(int integer) {
+    private static int addOneToInteger(Integer integer) {
         integer = integer + 1;
         return integer;
     }
