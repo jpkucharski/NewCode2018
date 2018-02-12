@@ -20,7 +20,7 @@ abstract public class AbstractionTestClass {
             x = value;
         }
         counter++; // <-- operation on class memory
-        addOneToInteger(counter); //<-- memory allocation problem, counter is not changed!
+        addOneToInteger(counter); //<-- memory allocation problem, counter was not changed!
     }
 
     abstract public void print();
