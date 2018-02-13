@@ -22,7 +22,7 @@ public class ValidatorTest {
     private static final String FILE_PATH = "c:\\NewFolder\\xxf.txt";
     private static final String STRING_VALIDATION_ERROR_MESSAGE = "String length is not equal to 4";
     private static final String FILE_NOT_FOUND_ERROR_MESSAGE =
-            "c:\\NewFolder\\xxf.txt (The system cannot find the path specified)";
+            "c:\\NewFolder\\xxf.txt (The system cannot find the file specified)";
 
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
