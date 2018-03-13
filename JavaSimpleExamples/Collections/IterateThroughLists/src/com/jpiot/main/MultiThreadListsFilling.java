@@ -4,15 +4,6 @@ import java.util.*;
 
 public class MultiThreadListsFilling {
 
-    //WARNING !!!!
-    //This program is creating contains a massive collections!
-    //Check the memory status in VM settings!!
-    // -Xms512M -Xmx8192M -XX:+UseG1GC -XX:MinHeapFreeRatio=15 -XX:MaxHeapFreeRatio=30
-
-
-
-
-
 
     ArrayList<String> arrayList;
     LinkedList<String> linkedList;
@@ -20,13 +11,6 @@ public class MultiThreadListsFilling {
     Vector vector;
     TreeSet<String> treeSet;
 
-    public MultiThreadListsFilling(ArrayList arrayList, LinkedList linkedList, HashSet hashSet, Vector vector, TreeSet treeSet) {
-        this.arrayList = arrayList;
-        this.linkedList = linkedList;
-        this.hashSet = hashSet;
-        this.vector = vector;
-        this.treeSet = treeSet;
-    }
 
     public void run(){
 

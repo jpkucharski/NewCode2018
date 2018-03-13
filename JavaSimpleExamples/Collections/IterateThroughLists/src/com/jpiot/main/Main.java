@@ -5,16 +5,15 @@ import java.util.*;
 
 public class Main {
 
+    //WARNING !!!!
+    //This program is creating contains a massive collections!
+    //Check the memory status in VM settings!!
+    // -Xms512M -Xmx8192M -XX:+UseG1GC -XX:MinHeapFreeRatio=15 -XX:MaxHeapFreeRatio=30
+
     private static final String STRING_TO_SEARCH = "String987654";
     private static final String STRING_TO_REMOVE = "String987653";
     private static final String STRING_FOR_REPLACEMENT = "String987654a";
     private static final int HOW_LONG_PROGRAM_SHOULD_KEEP_OBJECTS_IN_MEMORY = 5000;
-    private List<String> list1;
-    private ArrayList<String> arrayList;
-    private LinkedList<String> linkedList;
-    private HashSet<String> hashSet;
-    private TreeSet<String> treeSet;
-    private Vector vector;
 
     public static void main(String[] args) {
         Main m1 = new Main();
@@ -28,7 +27,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MultiThreadListsFilling multiThreadListsFilling = new MultiThreadListsFilling(arrayList, linkedList, hashSet, vector, treeSet);
+        MultiThreadListsFilling multiThreadListsFilling = new MultiThreadListsFilling();
         multiThreadListsFilling.run();
         System.out.println("Filling of collections completed.");
         System.out.println("Compere times for method contains(Object):");
@@ -51,29 +50,26 @@ public class Main {
         removeObjectFromCollection(multiThreadListsFilling.getHashSet(), STRING_TO_REMOVE);
         removeObjectFromCollection(multiThreadListsFilling.getTreeSet(), STRING_TO_REMOVE);
 
-        try {
-            Thread.sleep(HOW_LONG_PROGRAM_SHOULD_KEEP_OBJECTS_IN_MEMORY);
+            try {
+                Thread.sleep(HOW_LONG_PROGRAM_SHOULD_KEEP_OBJECTS_IN_MEMORY);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Erasing collections!!");
-            multiThreadListsFilling.getArrayList().clear();
+            clearingTheMemoryFromCollection(multiThreadListsFilling.getArrayList());
+            clearingTheMemoryFromCollection(multiThreadListsFilling.getLinkedList());
+            clearingTheMemoryFromCollection(multiThreadListsFilling.getVector());
+            clearingTheMemoryFromCollection(multiThreadListsFilling.getHashSet());
+            clearingTheMemoryFromCollection(multiThreadListsFilling.getTreeSet());
+
+    }
+
+    private void clearingTheMemoryFromCollection(Collection collection){
+        collection.clear();
+        System.gc();
+        System.out.println(collection.getClass().getSimpleName() + "size=" + collection.size());
+        try {
             Thread.sleep(1000);
-            System.gc();
-            System.out.println(multiThreadListsFilling.getArrayList().getClass().getSimpleName() + "size=" + multiThreadListsFilling.getArrayList().size());
-            multiThreadListsFilling.getLinkedList().clear();
-            Thread.sleep(1000);
-            System.gc();
-            System.out.println(multiThreadListsFilling.getLinkedList().getClass().getSimpleName() + "size=" + multiThreadListsFilling.getLinkedList().size());
-            multiThreadListsFilling.getVector().clear();
-            Thread.sleep(1000);
-            System.gc();
-            System.out.println(multiThreadListsFilling.getVector().getClass().getSimpleName() + "size=" + multiThreadListsFilling.getVector().size());
-            multiThreadListsFilling.getHashSet().clear();
-            Thread.sleep(1000);
-            System.gc();
-            System.out.println(multiThreadListsFilling.getHashSet().getClass().getSimpleName() + "size=" + multiThreadListsFilling.getHashSet().size());
-            multiThreadListsFilling.getTreeSet().clear();
-            Thread.sleep(10000);
-            System.gc();
-            System.out.println(multiThreadListsFilling.getTreeSet().getClass().getSimpleName() + "size=" + multiThreadListsFilling.getTreeSet().size());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
