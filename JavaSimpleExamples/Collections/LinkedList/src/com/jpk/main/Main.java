@@ -1,58 +1,94 @@
 package com.jpk.main;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
+
+// -Xms512M -Xmx8192M -XX:+UseG1GC -XX:MinHeapFreeRatio=15 -XX:MaxHeapFreeRatio=30 !!!!!!!!!!!
 
 public class Main {
 
     private static List<String> linkedList;
 
-
-    static{
-        linkedList = new LinkedList<>();
-    }
-
-
-
     public static void main(String[] args) {
+
+        linkedList = new LinkedList<>();
+        Collection<String> synchronizedLinkedList = Collections.synchronizedCollection(linkedList);
 
         long startTime = System.nanoTime();
         Thread t1 = (new Thread(() ->
         {
             System.out.println("T1 Started!");
-            for (int i = 0; i < 20000000; i++) {
-                addToList(linkedList, "String" + i);
+            for (int i = 0; i < 10000000; i++) {
+                synchronizedLinkedList.add("String" + i);
             }
         }));
 
-//        Thread t2 = (new Thread(() ->
-//        {
-//            System.out.println("T2 Started!");
-//            for (int i = 10000000; i < 20000000; i++) {
-//                addToList(linkedList, "String" + i);
-//            }
-//        }));
+        Thread t2 = (new Thread(() ->
+        {
+            System.out.println("T2 Started!");
+            for (int i = 10000000; i < 20000000; i++) {
+                synchronizedLinkedList.add("String" + i);
+            }
+        }));
+
+        Thread t3 = (new Thread(() ->
+        {
+            System.out.println("T3 Started!");
+            for (int i = 20000000; i < 30000000; i++) {
+                synchronizedLinkedList.add("String" + i);
+            }
+        }));
+
+        Thread t4 = (new Thread(() ->
+        {
+            System.out.println("T4 Started!");
+            for (int i = 30000000; i < 40000000; i++) {
+                synchronizedLinkedList.add("String" + i);
+            }
+        }));
 
         t1.start();
-//        t2.start();
+        t2.start();
+        t3.start();
+        t4.start();
         try {
             t1.join();
-//            t2.join();
+            t2.join();
+            t3.join();
+            t4.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       long estimate = System.nanoTime()-startTime;
-        System.out.println("Time = "+estimate);
+        long estimate = System.nanoTime() - startTime;
+        System.out.println("Time = " + estimate);
 
-       System.out.println(linkedList.size());
-
+        System.out.println(linkedList.size());
     }
 
-
-    private static synchronized void addToList(List list, String element){
+    private static synchronized void addToList(Collection list, String element) {
         list.add(element);
     }
+}
 
+//        ----------1 thread
+//        T1 Started!
+//        Time = 11975821362
+//        40000000
+//        ----------2 threads
+//        T1 Started!
+//        T2 Started!
+//        Time = 13201456302
+//        40000000
+//        ----------4 threads
+//        T1 Started!
+//        T4 Started!
+//        T3 Started!
+//        T2 Started!
+//        Time = 14435706655
+//        40000000
 
 
 //    Implements List and Queue Interfaces!!
@@ -138,4 +174,4 @@ public class Main {
 
 
 
-}
+
