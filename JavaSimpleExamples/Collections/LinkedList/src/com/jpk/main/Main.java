@@ -10,6 +10,11 @@ import java.util.List;
 
 public class Main {
 
+    private static final String CONSTANS_STRING = "String";
+    private static long startTime;
+    private static long estimateTime;
+
+
     private static List<String> linkedList;
 
     public static void main(String[] args) {
@@ -17,36 +22,49 @@ public class Main {
         linkedList = new LinkedList<>();
         Collection<String> synchronizedLinkedList = Collections.synchronizedCollection(linkedList);
 
-        long startTime = System.nanoTime();
+        System.out.println("Test of LinkedList filling method's using multithreaded system ");
+        System.out.println("-----------------------------------------------------------");
+
+        creatingByMainThread(synchronizedLinkedList);
+        fillingByTwoThreads(synchronizedLinkedList);
+        fillingByFourThreads(synchronizedLinkedList);
+        synchronizedCreatingByMainThread(synchronizedLinkedList);
+        synchronizedFillingByTwoThreads(synchronizedLinkedList);
+        synchronizedFillingByFourThreads(synchronizedLinkedList);
+    }
+
+    private static void fillingByFourThreads(Collection<String> synchronizedLinkedList) {
+        System.out.println("Collections.synchronizedCollection");
+        System.out.println("Four Thread using for loop 10 millions records each");
+        cleaningList(synchronizedLinkedList);
+        System.gc();
+        startTime = System.nanoTime();
+
         Thread t1 = (new Thread(() ->
         {
-            System.out.println("T1 Started!");
             for (int i = 0; i < 10000000; i++) {
-                synchronizedLinkedList.add("String" + i);
+                synchronizedLinkedList.add(CONSTANS_STRING + i);
             }
         }));
 
         Thread t2 = (new Thread(() ->
         {
-            System.out.println("T2 Started!");
             for (int i = 10000000; i < 20000000; i++) {
-                synchronizedLinkedList.add("String" + i);
+                synchronizedLinkedList.add(CONSTANS_STRING + i);
             }
         }));
 
         Thread t3 = (new Thread(() ->
         {
-            System.out.println("T3 Started!");
             for (int i = 20000000; i < 30000000; i++) {
-                synchronizedLinkedList.add("String" + i);
+                synchronizedLinkedList.add(CONSTANS_STRING + i);
             }
         }));
 
         Thread t4 = (new Thread(() ->
         {
-            System.out.println("T4 Started!");
             for (int i = 30000000; i < 40000000; i++) {
-                synchronizedLinkedList.add("String" + i);
+                synchronizedLinkedList.add(CONSTANS_STRING + i);
             }
         }));
 
@@ -62,34 +80,177 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        long estimate = System.nanoTime() - startTime;
-        System.out.println("Time = " + estimate);
 
-        System.out.println(linkedList.size());
+        estimateTime = System.nanoTime() - startTime;
+        System.out.println("Size of list: " + synchronizedLinkedList.size());
+        System.out.println("Time to fill: " + estimateTime / 1000000);
+        System.out.println("-----------------------------------------------------------");
     }
+
+    private static void fillingByTwoThreads(Collection<String> synchronizedLinkedList) {
+        System.out.println("Collections.synchronizedCollection");
+        System.out.println("Two Thread using for loop 20millions records each");
+        cleaningList(synchronizedLinkedList);
+        System.gc();
+        startTime = System.nanoTime();
+
+        Thread t1 = (new Thread(() ->
+        {
+            for (int i = 0; i < 20000000; i++) {
+                synchronizedLinkedList.add(CONSTANS_STRING + i);
+            }
+        }));
+
+        Thread t2 = (new Thread(() ->
+        {
+            for (int i = 20000000; i < 40000000; i++) {
+                synchronizedLinkedList.add(CONSTANS_STRING + i);
+            }
+        }));
+
+        t1.start();
+        t2.start();
+        try {
+            t2.join();
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        estimateTime = System.nanoTime() - startTime;
+        System.out.println("Size of list: " + synchronizedLinkedList.size());
+        System.out.println("Time to fill: " + estimateTime / 1000000);
+        System.out.println("-----------------------------------------------------------");
+    }
+
+    private static void creatingByMainThread(Collection<String> synchronizedLinkedList) {
+        System.out.println("Collections.synchronizedCollection");
+        System.out.println("Main Thread only simple for loop = 40 millions records");
+        cleaningList(synchronizedLinkedList);
+        System.gc();
+        startTime = System.nanoTime();
+        for (int i = 0; i < 40000000; i++) {
+            synchronizedLinkedList.add(CONSTANS_STRING + i);
+        }
+        estimateTime = System.nanoTime() - startTime;
+        System.out.println("Size of list: " + synchronizedLinkedList.size());
+        System.out.println("Time to fill: " + estimateTime / 1000000);
+        System.out.println("-----------------------------------------------------------");
+    }
+
+    private static void synchronizedFillingByFourThreads(Collection<String> synchronizedLinkedList) {
+        System.out.println("Synchronized method add to List");
+        System.out.println("Four Thread using for loop 10 millions records each");
+        cleaningList(linkedList);
+        System.gc();
+        startTime = System.nanoTime();
+
+        Thread t1 = (new Thread(() ->
+        {
+            for (int i = 0; i < 10000000; i++) {
+                addToList(linkedList, CONSTANS_STRING + i);
+            }
+        }));
+
+        Thread t2 = (new Thread(() ->
+        {
+            for (int i = 10000000; i < 20000000; i++) {
+                addToList(linkedList, CONSTANS_STRING + i);
+            }
+        }));
+
+        Thread t3 = (new Thread(() ->
+        {
+            for (int i = 20000000; i < 30000000; i++) {
+                addToList(linkedList, CONSTANS_STRING + i);
+            }
+        }));
+
+        Thread t4 = (new Thread(() ->
+        {
+            for (int i = 30000000; i < 40000000; i++) {
+                addToList(linkedList, CONSTANS_STRING + i);
+            }
+        }));
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        estimateTime = System.nanoTime() - startTime;
+        System.out.println("Size of list: " + linkedList.size());
+        System.out.println("Time to fill: " + estimateTime / 1000000);
+        System.out.println("-----------------------------------------------------------");
+    }
+
+    private static void synchronizedFillingByTwoThreads(Collection<String> synchronizedLinkedList) {
+        System.out.println("Synchronized method add to List");
+        System.out.println("Two Thread using for loop 20millions records each");
+        cleaningList(linkedList);
+        System.gc();
+        startTime = System.nanoTime();
+
+        Thread t1 = (new Thread(() ->
+        {
+            for (int i = 0; i < 20000000; i++) {
+                addToList(linkedList, CONSTANS_STRING + i);
+            }
+        }));
+
+        Thread t2 = (new Thread(() ->
+        {
+            for (int i = 20000000; i < 40000000; i++) {
+                addToList(linkedList, CONSTANS_STRING + i);
+            }
+        }));
+
+        t1.start();
+        t2.start();
+        try {
+            t2.join();
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        estimateTime = System.nanoTime() - startTime;
+        System.out.println("Size of list: " + linkedList.size());
+        System.out.println("Time to fill: " + estimateTime / 1000000);
+        System.out.println("-----------------------------------------------------------");
+    }
+
+    private static void synchronizedCreatingByMainThread(Collection<String> synchronizedLinkedList) {
+        System.out.println("Synchronized method add to List");
+        System.out.println("Main Thread only simple for loop = 40 millions records");
+        cleaningList(linkedList);
+        System.gc();
+        startTime = System.nanoTime();
+        for (int i = 0; i < 40000000; i++) {
+            addToList(linkedList, CONSTANS_STRING + i);
+        }
+        estimateTime = System.nanoTime() - startTime;
+        System.out.println("Size of list: " + linkedList.size());
+        System.out.println("Time to fill: " + estimateTime / 1000000);
+        System.out.println("-----------------------------------------------------------");
+    }
+
+    private static void cleaningList(Collection<String> synchronizedLinkedList) {
+        synchronizedLinkedList.clear();
+    }
+
 
     private static synchronized void addToList(Collection list, String element) {
         list.add(element);
     }
+
 }
-
-//        ----------1 thread
-//        T1 Started!
-//        Time = 11975821362
-//        40000000
-//        ----------2 threads
-//        T1 Started!
-//        T2 Started!
-//        Time = 13201456302
-//        40000000
-//        ----------4 threads
-//        T1 Started!
-//        T4 Started!
-//        T3 Started!
-//        T2 Started!
-//        Time = 14435706655
-//        40000000
-
 
 //    Implements List and Queue Interfaces!!
 //    LinkedList Methods:
