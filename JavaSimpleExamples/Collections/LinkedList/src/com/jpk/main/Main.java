@@ -239,6 +239,11 @@ public class Main {
         System.out.println("Size of list: " + linkedList.size());
         System.out.println("Time to fill: " + estimateTime / 1000000);
         System.out.println("-----------------------------------------------------------");
+
+        System.out.println("Conclusion: Because thread locking then self's on List Object it will teake longer to put object i nto array.  ");
+
+
+
     }
 
     private static void cleaningList(Collection<String> synchronizedLinkedList) {
