@@ -1,30 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:annotation-config/> <!-- <- only for annotations config example -->
+    <context:property-placeholder location="app.properties"/> <!-- just for properties configuration-->
+
     <bean name="customerRepository"
-          class="com.pluralsight.repository.HiberbnateCustomerRepositoryInpl"/>
+          class="com.pluralsight.repository.HiberbnateCustomerRepositoryInpl">
+        <!--only for hard-wired example-->
+        <!--<property name="dbUsername" value="${dbUsername}"/>-->
+
+    </bean>
 
     <!--Seter Injection-->
     <!--<bean name="customerService"-->
-          <!--class="com.pluralsight.service.CustomerServiceImpl">-->
-        <!--<property name="customerRepository" ref="customerRepository"/>-->
+    <!--class="com.pluralsight.service.CustomerServiceImpl">-->
+    <!--<property name="customerRepository" ref="customerRepository"/>-->
     <!--</bean>-->
 
     <!--Constructor Injection-->
     <!--<bean name="customerService"-->
-          <!--class="com.pluralsight.service.CustomerServiceImpl">-->
-        <!--<constructor-arg index="0" ref="customerRepository"/>-->
+    <!--class="com.pluralsight.service.CustomerServiceImpl">-->
+    <!--<constructor-arg index="0" ref="customerRepository"/>-->
     <!--</bean>-->
 
     <!--Autowire by Constructor-->
     <!--<bean name="customerService"-->
-          <!--class="com.pluralsight.service.CustomerServiceImpl" autowire="constructor">-->
+    <!--class="com.pluralsight.service.CustomerServiceImpl" autowire="constructor">-->
     <!--</bean>-->
 
     <!--Autowire by Type-->
     <bean name="customerService"
-          class="com.pluralsight.service.CustomerServiceImpl" autowire="byType">
+          class="com.pluralsight.service.CustomerServiceImpl"
+          autowire="byType"
+          scope="prototype"> <!--singleton scope -->
 
     </bean>
 

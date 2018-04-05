@@ -9,19 +9,22 @@ import java.util.List;
 
 public class Application {
 
-public static void main (String [] arg){
+    public static void main(String[] arg) {
 
 //    CustomerService service = new CustomerServiceImpl();
 
-    ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-    CustomerService service = appContext.getBean("customerService",CustomerService.class);
+        CustomerService service = appContext.getBean("customerService", CustomerService.class);
+        System.out.println(service);
 
-    System.out.println(service.findAll().get(0).getFirstname());
+        CustomerService service2 = appContext.getBean("customerService", CustomerService.class);
+        System.out.println(service2);
+
+        System.out.println(service.findAll().get(0).getFirstname());
 
 
-
-}
+    }
 
 
 }
