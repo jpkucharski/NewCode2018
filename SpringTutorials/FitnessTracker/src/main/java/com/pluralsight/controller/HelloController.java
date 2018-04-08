@@ -1,8 +1,8 @@
 package com.pluralsight.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+        import org.springframework.stereotype.Controller;
+        import org.springframework.ui.Model;
+        import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HelloController {
@@ -12,7 +12,7 @@ public class HelloController {
 
         model.addAttribute("greeting", "Peters Hello World");
 
-        return "hello";
+        return "hello"; //<-- name of JSP page that will be opened and will put this data to it. hello.jsp
     }
 
 }
