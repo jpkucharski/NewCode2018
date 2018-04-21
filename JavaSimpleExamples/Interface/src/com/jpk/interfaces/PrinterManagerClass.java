@@ -6,6 +6,6 @@ public class PrinterManagerClass extends Printer{
 
     @Override
     public void print(String string) {
-        System.out.println(TEXT_FROM_PRINTER_MANAGER_CLASS + super.someAnotherMethodJustForThisPackage());
+        System.out.println(TEXT_FROM_PRINTER_MANAGER_CLASS + super.someAnotherMethodJustForThisPackage() + x);
     }
 }
