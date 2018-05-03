@@ -1,5 +1,7 @@
 package com.jpk.main;
 
+import java.util.Objects;
+
 public class Person {
 
     private String name;
@@ -20,22 +22,19 @@ public class Person {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj != null){
-           return true;
-        }
-        if(obj instanceof Person){
-            return true;
-        }
-        String name = ((Person)obj).getName();
-        int age = ((Person)obj).getAge();
-        if(this.name != null  && this.getName().equals(name) && this.getAge()==age ){
-            return true;
+        if(obj != null && obj instanceof Person) {
+
+            String name = ((Person) obj).getName();
+            int age = ((Person) obj).getAge();
+            if (this.getName().equals(name) && this.getAge() == age) {
+                return true;
+            }
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return 4;
+        return Objects.hash(getName(),getAge());
     }
 }
