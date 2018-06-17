@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("customerService") // to erase @Been from AppConfig class
+@Service("customerServiceImpl") // to erase @Been from AppConfig class <-- for autowiring
 //@Scope("singleton")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class CustomerServiceImpl implements CustomerService {
@@ -24,10 +24,10 @@ public class CustomerServiceImpl implements CustomerService {
 //  Constructor Injection Example
 //    private CustomerRepository customerRepository;
 //
-//    public CustomerServiceImpl(CustomerRepository customerRepository) {
-//        System.out.println("We are using constructor injection");
-//        this.customerRepository = customerRepository;
-//    }
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
+        System.out.println("---> We are using constructor injection <---");
+        this.customerRepository = customerRepository;
+    }
 
 //  Autowiring Example
 //    @Autowired
@@ -43,9 +43,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     //  Setter Injection Example
-    @Autowired // Autowiring
+//    @Autowired // Autowiring
     public void setCustomerRepository(CustomerRepository customerRepository) {
-        System.out.println("We are using setter injection");
+        System.out.println("---> We are using setter injection <---");
         this.customerRepository = customerRepository;
     }
 }
