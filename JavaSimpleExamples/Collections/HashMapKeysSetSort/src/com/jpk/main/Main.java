@@ -1,5 +1,7 @@
 package com.jpk.main;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -16,7 +18,21 @@ public class Main {
 
         Set<String > mapSs = hmap.keySet();
         List<String> listOfKeys = mapSs.stream().collect(Collectors.toList());
-        listOfKeys.c
+
+        Comparator comparator = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                if((o1.toString().charAt(0))<(o2.toString().charAt(0))){
+                    return -1;
+                }
+                if((o1.toString().charAt(0))>(o2.toString().charAt(0))){
+                    return 1;
+                }
+                return 0;
+            }
+        };
+
+        Collections.sort(listOfKeys, comparator);
 
         for (String element: listOfKeys) {
             System.out.println(element);
