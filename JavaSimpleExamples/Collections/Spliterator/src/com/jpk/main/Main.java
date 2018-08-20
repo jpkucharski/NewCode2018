@@ -1,7 +1,6 @@
 package com.jpk.main;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Spliterator;
 
 public class Main {
@@ -21,11 +20,10 @@ public class Main {
     private void run() {
         createList(CAPACITY_OF_LIST);
         splitTheList(arrayList);
-        printingElementsInSpliteraor(spliterator);
-
+        printingElementsInSpliterator(spliterator);
     }
 
-    private void printingElementsInSpliteraor(Spliterator spliterator) {
+    private void printingElementsInSpliterator(Spliterator spliterator) {
         System.out.println("Spliterator size: " + spliterator.estimateSize()); //<-- elements that has left in spliterator
         System.out.println("SpliteratorPartition1 size: " + spliteratorPartition1.estimateSize());
         System.out.println("SpliteratorPartition2 size: " + spliteratorPartition2.estimateSize());
@@ -41,9 +39,6 @@ public class Main {
         spliteratorPartition1.forEachRemaining((element)-> System.out.println(element));
         System.out.println("spliterator:");
         spliterator.forEachRemaining((element)-> System.out.println(element));
-
-
-//            spliterator1.forEachRemaining((element)-> System.out.println(element));
     }
 
     private void createList(int size_of_list) {

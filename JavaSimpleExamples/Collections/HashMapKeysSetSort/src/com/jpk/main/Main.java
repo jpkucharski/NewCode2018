@@ -12,8 +12,8 @@ public class Main {
         Map<String, Integer> hmap = new HashMap<>();
 
         hmap.put("Anita", 18 );
-        hmap.put("Beata", 27);
-        hmap.put("Anastazia", 33);
+        hmap.put("Megan", 27);
+        hmap.put("Anastasia", 33);
         hmap.put("Mark",77);
 
         Set<String > mapSs = hmap.keySet();

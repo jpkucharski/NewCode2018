@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="YahooFinanceAPI-3.13.0-javadoc">
+    <CLASSES>
+      <root url="jar://C:/javaLibs/YahooFinanceAPI-3.13.0/YahooFinanceAPI-3.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://C:/javaLibs/YahooFinanceAPI-3.13.0/YahooFinanceAPI-3.13.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://C:/javaLibs/YahooFinanceAPI-3.13.0/YahooFinanceAPI-3.13.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
